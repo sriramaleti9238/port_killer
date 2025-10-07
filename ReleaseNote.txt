@@ -1,0 +1,63 @@
+PortKiller - Version 1.0.0
+Release Date: 2025-10-07
+
+========================================
+New Features
+========================================
+
+1. **Real-Time Port & Process Monitoring**
+   - Displays all active TCP and UDP connections.
+   - Shows local & foreign addresses, state, PID, and process names.
+
+2. **Search & Filter**
+   - Search by port number.
+   - Filter by protocol (TCP/UDP) and connection state (LISTENING, ESTABLISHED, etc.).
+   - Dynamic table update on filter selection.
+
+3. **Process Management**
+   - Kill individual or multiple processes directly from the app.
+   - Confirmation dialogs before terminating processes.
+   - Status updates for successful or failed operations.
+
+4. **Asynchronous Operations**
+   - Long-running tasks such as loading connections or killing processes run asynchronously.
+   - Ensures GUI remains responsive during operations.
+
+5. **Export Options**
+   - Export current table data to CSV and HTML formats.
+   - Timestamped filenames for easy tracking.
+   - User-friendly dialogs for saving files.
+
+6. **Keyboard Shortcuts**
+   - F5: Refresh table.
+   - Ctrl+F: Focus on port search field.
+   - Ctrl+E: Export CSV.
+
+7. **User Interface**
+   - Modern, clean, and responsive design.
+   - Table row highlighting, alternating row colors, and styled buttons.
+   - Status bar to display real-time messages and operation results.
+
+8. **Cross-Platform Compatibility**
+   - Works on Windows environments with standard CMD commands.
+   - Handles permission issues gracefully.
+
+========================================
+Bug Fixes
+========================================
+
+- N/A (Initial Release)
+
+========================================
+Known Issues / Limitations
+========================================
+
+- Killing system or protected processes may fail due to Windows permissions.
+- UDP connections do not have a state column and are displayed as “N/A”.
+- Requires administrator privileges for terminating certain processes.
+
+========================================
+Contact / Support
+========================================
+
+- For issues, suggestions, or feedback, please contact: support@portkiller.com

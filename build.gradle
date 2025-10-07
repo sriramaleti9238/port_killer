@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.portkiller'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'com.formdev:flatlaf:3.2.5'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.register('generateVersionClass') {
+    def outputDir = layout.buildDirectory.dir("generated/sources/version")
+    outputs.dir(outputDir)
+
+    doLast {
+        def file = outputDir.get().file("com/portkiller/util/BuildConfig.java").asFile
+        file.parentFile.mkdirs()
+        file.text = """\
+            package com.portkiller.util;
+
+            public final class BuildConfig {
+                public static final String VERSION = "${project.version}";
+                public static final String BUILD_TIME = "${new Date().format("yyyy-MM-dd HH:mm:ss")}";
+                private BuildConfig() {}
+            }
+        """.stripIndent()
+    }
+}
+
+sourceSets {
+    main {
+        java.srcDir(tasks.named("generateVersionClass"))
+    }
+}
